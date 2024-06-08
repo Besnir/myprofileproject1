@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    *{
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 80px 0 0 0;
+      color: white;
+      font-size: 16px;
+      background-image: linear-gradient(to right, rgba(0, 0, 255, 0.725), rgba(0, 0, 0, 0.924), rgba(0, 0, 255, 0.706));
+      min-height: 100vh;
+    }
+
+    body header {
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 255, 0.725), black, rgba(0, 0, 255, 0.706));
+    }
+
+    body header .container {
+      width: 100%;
+      max-width: 850px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 20px;
+      gap: 20px;
+    }
+
+    body header .container img {
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      cursor: pointer;
+    }
+
+    body header ul {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+    }
+
+    body header ul li {
+      background-color: white;
+      color: black;
+      padding: 5px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    body header ul li:hover {
+      background-color: rgb(137, 136, 136);
+      color: white;
+    }
+
+    body header ul li.active {
+      background-color: rgb(255, 140, 0);
+      color: white;
+    }
+    body header ul li.active:hover {
+      background-color: rgb(255, 140, 0);
+      color: white;
+    }
+
+    body .header {
+      text-align: center;
+    }
+
+    body .header h1 {
+      font-size: 24px;
+      margin-bottom: 6px;
+      color: rgb(255, 140, 0);
+    }
+
+    .progressp {
+      color: rgba(222, 222, 222, 0.682);
+    }
+
+    .details {
+      text-align: left;
+      width: 100%;
+      max-width: 310px;
+      background: rgb(137, 136, 136);
+      border: 1px solid rgb(137, 136, 136);
+      color: black;
+      padding: 10px;
+      margin: 0 6px;
+      border-radius: 12px;
+    }
+
+    .details span {
+      color: white;
+    }
+
+    .details:hover {
+      background: black;
+      color: white;
+      cursor: pointer;
+      border: 1px solid white;
+
+      span {
+        color: green;
+      }
+    }
+
+    body .description {
+      padding: 0 10px;
+      max-width: 900px;
+    }
+
+    body .description h2 {
+      color: rgb(255, 140, 0);
+    }
+
+    body .description .readMore-btn {
+      background: green;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    body .description .readMore-btn:hover {
+      color: black;
+      background: greenyellow;
+    }
+
+    body .cover-image {
+      object-fit: cover;
+      width: 95%;
+      min-width: 310px;
+      max-width: 800px;
+      margin: 0 auto;
+      cursor: pointer;
+
+      height: 380px;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    body .askQuestion {
+      padding: 20px 10px 0 10px;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    body .askQuestion span {
+      color: rgb(255, 140, 0);
+    }
+
+    body .askQuestion .inputArea {
+      display: flex;
+      justify-content: center;
+    }
+
+    body .askQuestion input {
+      padding: 14px;
+      border: none;
+      outline: none;
+      width: 100%;
+      min-width: 181px;
+      max-width: 550px;
+    }
+
+    body .askQuestion button {
+      padding: 14px;
+      border: none;
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      font-weight: bold;
+    }
+
+    body .askQuestion button:hover {
+      opacity: .8;
+    }
+
+    .tablePart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 70px 10px 0 10px;
+      color: black;
+      width: 100%;
+    }
+
+    .tablePart h2 {
+      margin-bottom: -10px;
+      color: rgb(255, 140, 0);
+    }
+
+    .tablePart span {
+      color: rgba(222, 222, 222, 0.663);
+      max-width: 880px;
+    }
+
+    .tablePart table {
+      border-collapse: collapse;
+      background-color: white;
+      width: 100%;
+      max-width: 880px;
+    }
+    
+    .tablePart table thead {
+      background-color: black;
+      color: white;
+    }
+
+    .tablePart table tr:nth-child(even) {
+      background-color: rgba(0, 128, 0, 0.637);
+    }
+
+    .tablePart table th, .tablePart table td {
+      padding: 5px 20px;
+      text-align: left;
+    }
+
+    body .goalsdiv {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    body .goalsdiv h2 {
+      color: rgb(255, 140, 0);
+      margin-bottom: -10px;
+    }
+
+    body .goalsdiv .desc {
+      color: rgba(222, 222, 222, 0.663);
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: black;
+    }
+
+    footer .footer {
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    footer .footer .name {
+      margin-bottom: 20px;
+    }
+
+    footer .footer hr {
+      margin-bottom: 10px;
+    }
+
+    footer .footer span {
+      color: rgb(255, 140, 0);
+      cursor: pointer;
+    }
+  </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmanuel Werangai (Profile)</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="profile-image.jpg" alt="profile">
+      <ul>
+        <li class="active">My&nbsp;Bio</li>
+        <li>Contact&nbsp;me</li>
+        <li>FAQ(s)</li>
+        <li>About</li>
+      </ul>
+    </div>
+  </header>
+  <div class="header">
+    <h1>EMMANUEL WERANGAI.</h1>
+    <p class="progressp">The Magic you want is in the work you are avoiding.</p>
+  </div>
+  <div class="details">
+    <h3>My profile:</h3>
+    <p>Name: Emmanuel Werengai</p>
+    <p>Phone: 07595***30</p>
+    <p>Profession: Trader</p>
+    <p>Email: emmanuelti****3gmail.com</p>
+    <p>Nationality: <span>Kenyan</span></p>
+  </div>
+
+  <div class="description">
+    <h2 class="background">Background:</h2>
+    <p>Am born in the family of 8 and am the 3rd born. I started my primary education at the age of 6 in 'Shinny Stars' school, Nairobi. My academic journey was quite challenging to be authentic but above all I managed to finish even my secondary education and successfuly joined the university. I learned a bit of trading while in the University and that's my current area of specialization besides education. Am working to take trading to the next level and that's what draws my enthusiasm towards coding. This will help me to build a website which will create a favourable trading environment for the upcoming traders. My goal is to make 100,000 plus traders worldwide through my program...<button class="readMore-btn">Read more</button></p>
+  </div>
+
+  <div class="goalsdiv">
+    <h2>MY HOBBIES;</h2>
+    <p class="desc">A list of things I love doing during my leisure time.</p>
+    <P>(a). Learning something new.</P>
+    <P>(b). Reading the Bible.</P>
+    <P>(c). Going through the dictionary.</P>
+    <P>(d). Listening to gospel music.</P>
+    <P>(e). Stalking on my online mentors.</P>
+  </div>
+
+  <img class="cover-image" src="profile-image.jpg" alt="Cover image">
+
+  <div class="askQuestion">
+    <h2>A question about <span>me</span>?</h2>
+    <div class="inputArea">
+      <input type="text" placeholder="Type your question here">
+      <button>Submit</button>
+    </div>
+  </div>
+
+  <div class="tablePart">
+    <h2>THE BOOKS I READ:</h2>
+    <span>Here is the table containing the books I already read and those am currently reading and their authors.</span>
+
+    <table>
+      <thead>
+        <th>Book</th>
+        <th>Author</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. The Mountain is You!</td>
+          <td>Brianna Wiest</td>
+        </tr>
+        <tr>
+          <td>2. Dare to lead</td>
+          <td>Brene Brown</td>
+        </tr>
+        <tr>
+          <td>3. Rich Dad Poor Dad</td>
+          <td>Robert Kiyosaki</td>
+        </tr>
+        <tr>
+          <td>4. Big Magic</td>
+          <td>Elizabeth Gilbert</td>
+        </tr>
+        <tr>
+          <td>5. The Atomic Habits</td>
+          <td>James Clear</td>
+        </tr>
+        <tr>
+          <td>6. Four Agreements</td>
+          <td>Don Miguel Ruiz</td>
+        </tr>
+        <tr>
+          <td>7. The Magic of Thinking Big</td>
+          <td>David J. Schwartz</td>
+        </tr>
+        <tr>
+          <td>8. The Power of Now</td>
+          <td>Eckhart Tolle</td>
+        </tr>
+        <tr>
+          <td>9. The Art of happiness</td>
+          <td>Dalai Lama</td>
+        </tr>
+        <tr>
+          <td>10. The One Thing</td>
+          <td>W. Writers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="goalsdiv">
+    <h2>MY GOALS;</h2>
+    <p class="desc">A list of goals I'd love to accomplish in this life.</p>
+    <P>1. Make 100,000 traders worldwide.</P>
+    <P>2. Complete my course.</P>
+    <P>3. Get baptised.</P>
+    <P>4. Retire my parents.</P>
+    <P>5. Complete the Jenga  Labs workshop.</P>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <p class="name">Emmanuel's Profile</p>
+      <hr>
+      <p>All rights reserved @ 2024 <span>My Profile</span></p>
+    </div>
+  </footer>
+</body>
+</html>
